@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Centrim Life Compliance Dashboard mockup. Tracks completed, overdue, and upcoming jobs.">
+  <title>Centrim Life - Compliance Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside id="sidebar">
+      <div class="sidebar-brand">
+        <!-- Small logo indicator for mobile or icon state -->
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" stroke="#ffffff" stroke-width="2.5" fill="none"/>
+          <path d="M12 16C12 13.7909 13.7909 12 16 12C17.5 12 18.5 13 19 14.5" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+          <path d="M14 20C15.5 20.5 17 20 18 19" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <nav class="sidebar-menu">
+        <div class="sidebar-item active" title="Dashboard">
+          <svg viewBox="0 0 24 24">
+            <!-- Utensils / Kitchen -->
+            <path d="M11 9H9V2H7v7H5V2H3v7c0 2.21 1.79 4 4 4v9h2v-9c2.21 0 4-1.79 4-4V2h-2v7zM16 2v8h3v12h2V2h-5z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Starred">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Favorites">
+          <svg viewBox="0 0 24 24">
+            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.95-.42L12 5l1.89 4.54 4.95.42-3.73 3.23L16.23 18z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Community">
+          <svg viewBox="0 0 24 24">
+            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Tools">
+          <svg viewBox="0 0 24 24">
+            <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.3C.5 6.7.9 9.8 2.9 11.8c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.1z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Health">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Staff">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Offices">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm10 12h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Documents">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Medical">
+          <svg viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Charts">
+          <svg viewBox="0 0 24 24">
+            <path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.73-.47 8.5-4.25 8.97-8.99h-8.97z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Billing">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Reports">
+          <svg viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm3-4H7v-2h8v2zm0-4H7V7h8v2z"/>
+          </svg>
+        </div>
+        <div class="sidebar-item" title="Settings">
+          <svg viewBox="0 0 24 24">
+            <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+          </svg>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- MAIN APP WRAPPER -->
+    <div class="main-wrapper">
+      
+      <!-- TOP HEADER -->
+      <header>
+        <div class="header-left">
+          <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          
+          <div class="brand-logo">
+            <!-- Centrim Life Custom Logo -->
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
+              <circle cx="16" cy="16" r="14" stroke="#0087c9" stroke-width="3.5" fill="none"/>
+              <path d="M11 16C11 13.2386 13.2386 11 16 11C18.2 11 19.8 12.5 20.2 14.5" stroke="#0087c9" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M14 21C16 21.8 18.5 21 20 19.5" stroke="#10b981" stroke-width="4.5" stroke-linecap="round"/>
+            </svg>
+            Centrim<span>Life</span>
+          </div>
+
+          <!-- Branch Selector Dropdown -->
+          <div class="branch-selector">
+            <button class="branch-btn" id="branch-btn">
+              <span>Branch name</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="branch-dropdown" id="branch-dropdown">
+              <div class="branch-option">Main Office</div>
+              <div class="branch-option">North Branch</div>
+              <div class="branch-option">South Wing</div>
+              <div class="branch-option">East Facility</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="header-actions">
+            <!-- Search -->
+            <button class="action-btn" title="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+            <!-- Grid dashboard -->
+            <button class="action-btn" title="Dashboard Panels">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </button>
+            <!-- Calendar -->
+            <button class="action-btn" title="Calendar View">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </button>
+            <!-- Notification Bell -->
+            <button class="action-btn" title="Notifications">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="badge">5</span>
+            </button>
+          </div>
+
+          <!-- User Profile -->
+          <div class="user-profile">
+            <div class="user-avatar-wrapper">
+              <img src="avatar_profile.png" alt="User Avatar" class="user-avatar">
+              <div class="user-status"></div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT BODY -->
+      <div class="content-body">
+        
+        <!-- View Toggle Controls (Dashboard Switcher) -->
+        <div class="view-control-bar">
+          <div class="toggle-switch-container">
+            <span class="toggle-label">Show Summary Stats</span>
+            <label class="toggle-switch">
+              <input type="checkbox" id="dashboard-view-toggle" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- COMPLIANCE & SUMMARY CARDS (VIEW 1 - Collapsible) -->
+        <div class="compliance-section" id="compliance-section">
+          
+          <!-- Compliance Card -->
+          <div class="compliance-card">
+            <div class="compliance-percent-container">
+              <div class="compliance-value">42%</div>
+              <div class="compliance-label-row">
+                Filtered compliance
+                <!-- Info circle SVG -->
+                <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="compliance-progress-container">
+              <div class="progress-header-labels">
+                <span>0%</span>
+                <span class="progress-status-achieved">42% achieved</span>
+                <span>Target 100%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill"></div>
+              </div>
+              <div class="compliance-details">
+                <strong>5 of 12 jobs</strong> completed on time · <strong>4 overdue</strong> · <strong>3 due today</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary Cards Grid -->
+          <div class="summary-grid">
+            
+            <!-- Jobs Due -->
+            <div class="summary-card blue-card">
+              <div class="summary-info">
+                <div class="summary-number">12</div>
+                <div class="summary-title">Jobs Due</div>
+                <div class="summary-desc">Due on or before today</div>
+              </div>
+              <div class="summary-icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                  <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                  <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                  <rect x="7" y="13" width="2" height="2"/>
+                  <rect x="11" y="13" width="2" height="2"/>
+                  <rect x="15" y="13" width="2" height="2"/>
+                  <rect x="7" y="17" width="2" height="2"/>
+                  <rect x="11" y="17" width="2" height="2"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Completed -->
+            <div class="summary-card green-card">
+              <div class="summary-info">
+                <div class="summary-number">5</div>
+                <div class="summary-title">Completed</div>
+                <div class="summary-desc">Of jobs due till today</div>
+              </div>
+              <div class="summary-icon">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Overdue -->
+            <div class="summary-card red-card">
+              <div class="summary-info">
+                <div class="summary-number">4</div>
+                <div class="summary-title">Overdue</div>
+                <div class="summary-desc">Missed · affects compliance</div>
+              </div>
+              <div class="summary-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Due Today -->
+            <div class="summary-card orange-card">
+              <div class="summary-info">
+                <div class="summary-number">3</div>
+                <div class="summary-title">Due Today</div>
+                <div class="summary-desc">19 Mar · complete to improve compliance</div>
+              </div>
+              <div class="summary-icon">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <polyline points="12 6 12 12 16 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- MAIN TABLE DASHBOARD -->
+        <div class="table-dashboard-card">
+          
+          <!-- Section Header / Legend / Pagination -->
+          <div class="table-header-row">
+            <div class="table-title">Showing <strong>All jobs</strong></div>
+            
+            <div class="table-controls">
+              <ul class="legend-list">
+                <li class="legend-item">
+                  <span class="legend-box completed"></span>
+                  Completed
+                </li>
+                <li class="legend-item">
+                  <span class="legend-box overdue"></span>
+                  Overdue
+                </li>
+                <li class="legend-item">
+                  <span class="legend-box due-today"></span>
+                  Due Today
+                </li>
+                <li class="legend-item">
+                  <span class="legend-box upcoming"></span>
+                  Upcoming
+                </li>
+                <li class="legend-item">
+                  <span class="legend-box scheduled"></span>
+                  Scheduled
+                </li>
+              </ul>
+              
+              <div class="pagination-group">
+                <button class="pagination-btn" id="btn-prev" aria-label="Previous Page">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="15 18 9 12 15 6"/>
+                  </svg>
+                </button>
+                <button class="pagination-btn" id="btn-next" aria-label="Next Page">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Split-pane scrollable table timeline -->
+          <div class="table-scroll-container">
+            <table class="dashboard-table">
+              <thead>
+                <!-- Row 1: Month header -->
+                <tr>
+                  <th colspan="5" class="col-sticky col-jobname" style="border-bottom:none;"></th>
+                  <th colspan="11" class="month-group-header">March 2026</th>
+                  <th colspan="14" class="month-group-header" style="border-left: 1px solid var(--border-light);">April 2026</th>
+                </tr>
+                
+                <!-- Row 2: Week header -->
+                <tr>
+                  <th colspan="5" class="col-sticky col-jobname" style="border-bottom:none; border-top:none;"></th>
+                  <th colspan="4" class="week-group-header">Week 3</th>
+                  <th colspan="7" class="week-group-header" style="border-left: 1px solid var(--border-light);">Week 4</th>
+                  <th colspan="7" class="week-group-header" style="border-left: 1px solid var(--border-light); position: relative;">
+                    Week 5
+                    <!-- Today Indicator -->
+                    <span class="today-tag" style="left: -14px;">Today</span>
+                  </th>
+                  <th colspan="7" class="week-group-header" style="border-left: 1px solid var(--border-light);">Apr - Week 1</th>
+                </tr>
+
+                <!-- Row 3: Blue Future banner -->
+                <tr>
+                  <th class="col-sticky col-jobname">Job Name</th>
+                  <th class="col-sticky col-asset">Asset</th>
+                  <th class="col-sticky col-location">Location</th>
+                  <th class="col-sticky col-frequency">Frequency</th>
+                  <th class="col-sticky col-compliance">Compliance%</th>
+                  
+                  <!-- March Days headers -->
+                  <th class="day-header"><div>Thu</div><div>12</div></th>
+                  <th class="day-header"><div>Fri</div><div>13</div></th>
+                  <th class="day-header"><div>Sat</div><div>14</div></th>
+                  <th class="day-header"><div>Sun</div><div>15</div></th>
+                  <th class="day-header"><div>Mon</div><div>16</div></th>
+                  <th class="day-header"><div>Tue</div><div>17</div></th>
+                  <th class="day-header"><div>Wed</div><div>18</div></th>
+                  <th class="day-header"><div>Thu</div><div>19</div></th>
+                  <th class="day-header"><div>Fri</div><div>20</div></th>
+                  <th class="day-header"><div>Sat</div><div>21</div></th>
+                  <th class="day-header today-col-header" style="border-right: 2px solid #f59e0b;"><div>Sun</div><div>22</div></th>
+                  
+                  <!-- Blue banner across future timeline columns -->
+                  <th colspan="14" class="future-banner-header">
+                    &#9654; Future - Not counted in compliance
+                  </th>
+                </tr>
+
+                <!-- Row 4: Future Days headers below blue banner -->
+                <tr style="height: 38px;">
+                  <th colspan="5" class="col-sticky col-jobname" style="border-bottom: 2px solid var(--border-color); border-top: none;"></th>
+                  <!-- Past/Current March headers spacer -->
+                  <th colspan="11" style="background-color: #fafbfc; border-bottom: 2px solid var(--border-color); border-right: 2px solid #f59e0b;"></th>
+                  <!-- Future Day Columns headers -->
+                  <th class="day-header"><div>Mon</div><div>23</div></th>
+                  <th class="day-header"><div>Tue</div><div>24</div></th>
+                  <th class="day-header"><div>Wed</div><div>25</div></th>
+                  <th class="day-header"><div>Thu</div><div>26</div></th>
+                  <th class="day-header"><div>Fri</div><div>27</div></th>
+                  <th class="day-header"><div>Sat</div><div>28</div></th>
+                  <th class="day-header"><div>Sun</div><div>29</div></th>
+                  <th class="day-header"><div>Mon</div><div>30</div></th>
+                  <th class="day-header"><div>Tue</div><div>31</div></th>
+                  <th class="day-header"><div>Wed</div><div>01</div></th>
+                  <th class="day-header"><div>Thu</div><div>02</div></th>
+                  <th class="day-header"><div>Fri</div><div>03</div></th>
+                  <th class="day-header"><div>Sat</div><div>04</div></th>
+                  <th class="day-header"><div>Sun</div><div>05</div></th>
+                </tr>
+              </thead>
+              
+              <tbody id="table-body">
+                <!-- Rows will be populated dynamically or static. 
+                     We write static first for robustness & SEO / initial render speed -->
+                
+                <!-- Row 1: Daily office clean -->
+                <tr>
+                  <td class="col-sticky col-jobname"><span class="job-link">Daily office clean</span></td>
+                  <td class="col-sticky col-asset">—</td>
+                  <td class="col-sticky col-location">—</td>
+                  <td class="col-sticky col-frequency">Daily</td>
+                  <td class="col-sticky col-compliance"><span class="compliance-badge c-orange">50%</span></td>
+                  
+                  <!-- Timeline cells -->
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator completed"></span><div class="tooltip">Completed - Mar 12</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator overdue"></span><div class="tooltip">Overdue - Mar 16</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator overdue"></span><div class="tooltip">Overdue - Mar 17</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 18</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 20</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell today-divider-cell"></td>
+                  
+                  <!-- Future cells -->
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 23</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 24</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 25</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 26</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 27</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 30</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 31</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Apr 01</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Apr 02</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Apr 03</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                </tr>
+
+                <!-- Row 2: Daily room cleaning -->
+                <tr>
+                  <td class="col-sticky col-jobname"><span class="job-link">Daily room cleaning</span></td>
+                  <td class="col-sticky col-asset">—</td>
+                  <td class="col-sticky col-location">—</td>
+                  <td class="col-sticky col-frequency">Daily</td>
+                  <td class="col-sticky col-compliance"><span class="compliance-badge c-red">20%</span></td>
+                  
+                  <!-- Timeline cells -->
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator overdue"></span><div class="tooltip">Overdue - Mar 13</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator overdue"></span><div class="tooltip">Overdue - Mar 14</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator completed"></span><div class="tooltip">Completed - Mar 15</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 18</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 20</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell today-divider-cell"></td>
+                  
+                  <!-- Future cells -->
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 23</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 24</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 26</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 27</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 30</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 31</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Apr 01</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Apr 02</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Apr 03</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                </tr>
+
+                <!-- Row 3: Monthly CO check -->
+                <tr>
+                  <td class="col-sticky col-jobname"><span class="job-link">Monthly CO check</span></td>
+                  <td class="col-sticky col-asset">—</td>
+                  <td class="col-sticky col-location">Office room [F1]</td>
+                  <td class="col-sticky col-frequency">Monthly</td>
+                  <td class="col-sticky col-compliance"><span class="compliance-badge c-red">0%</span></td>
+                  
+                  <!-- Timeline cells -->
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 19</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell today-divider-cell"></td>
+                  
+                  <!-- Future cells -->
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                </tr>
+
+                <!-- Row 4: Weekly window restrictors -->
+                <tr>
+                  <td class="col-sticky col-jobname"><span class="job-link">Weekly window restrictors</span></td>
+                  <td class="col-sticky col-asset">—</td>
+                  <td class="col-sticky col-location">—</td>
+                  <td class="col-sticky col-frequency">Weekly</td>
+                  <td class="col-sticky col-compliance"><span class="compliance-badge c-red">0%</span></td>
+                  
+                  <!-- Timeline cells -->
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell today-divider-cell"></td>
+                  
+                  <!-- Future cells -->
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                </tr>
+
+                <!-- Row 5: WER -->
+                <tr>
+                  <td class="col-sticky col-jobname"><span class="job-link">WER</span></td>
+                  <td class="col-sticky col-asset">Air conditioner</td>
+                  <td class="col-sticky col-location">Office room [F1]</td>
+                  <td class="col-sticky col-frequency">Daily</td>
+                  <td class="col-sticky col-compliance"><span class="compliance-badge c-orange">50%</span></td>
+                  
+                  <!-- Timeline cells -->
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator completed"></span><div class="tooltip">Completed - Mar 12</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator overdue"></span><div class="tooltip">Overdue - Mar 16</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator overdue"></span><div class="tooltip">Overdue - Mar 17</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 18</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 20</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell today-divider-cell"></td>
+                  
+                  <!-- Future cells -->
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 23</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 24</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 25</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 26</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator upcoming"></span><div class="tooltip">Upcoming - Mar 27</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 30</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Mar 31</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Apr 01</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Apr 02</div></div></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator scheduled"></span><div class="tooltip">Scheduled - Apr 03</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                </tr>
+
+                <!-- Row 6: Window restrictor Check -->
+                <tr>
+                  <td class="col-sticky col-jobname"><span class="job-link">Window restrictor Check</span></td>
+                  <td class="col-sticky col-asset">tech asset</td>
+                  <td class="col-sticky col-location">—</td>
+                  <td class="col-sticky col-frequency">Monthly</td>
+                  <td class="col-sticky col-compliance"><span class="compliance-badge c-green">100%</span></td>
+                  
+                  <!-- Timeline cells -->
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"><div class="status-indicator-wrapper"><span class="status-indicator completed"></span><div class="tooltip">Completed - Mar 17</div></div></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell today-divider-cell"></td>
+                  
+                  <!-- Future cells -->
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                </tr>
+
+                <!-- Row 7: Yearly premises inspection -->
+                <tr>
+                  <td class="col-sticky col-jobname"><span class="job-link">Yearly premises inspection</span></td>
+                  <td class="col-sticky col-asset">—</td>
+                  <td class="col-sticky col-location">—</td>
+                  <td class="col-sticky col-frequency">Yearly</td>
+                  <td class="col-sticky col-compliance"><span class="compliance-badge c-red">0%</span></td>
+                  
+                  <!-- Timeline cells -->
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell today-divider-cell"></td>
+                  
+                  <!-- Future cells -->
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                  <td class="timeline-cell"></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Bottom Pagination (Matches Screenshot 2 footer details) -->
+          <div class="table-footer">
+            <div class="pagination-group">
+              <button class="pagination-btn" id="btn-prev-footer" aria-label="Previous Page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="15 18 9 12 15 6"/>
+                </svg>
+              </button>
+              <button class="pagination-btn" id="btn-next-footer" aria-label="Next Page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
